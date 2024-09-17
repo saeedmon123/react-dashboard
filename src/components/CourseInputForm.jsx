@@ -1,4 +1,5 @@
-import '../styles/courseInputForm.css'; // Importing the styles
+import React, { useState, useEffect } from 'react';
+import '../styles/courseInputForm.css'; // Import styles
 
 const CourseInputForm = ({ onSubmit }) => {
   const [numCourses, setNumCourses] = useState(0);

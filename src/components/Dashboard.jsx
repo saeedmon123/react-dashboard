@@ -10,7 +10,7 @@ const Dashboard = () => {
   const [courses, setCourses] = usePersistentState(`${username}_courses`, []);
   const [tasks, setTasks] = usePersistentState(`${username}_tasks`, {});
   const [showAddTaskForm, setShowAddTaskForm] = useState(false);
-  const [showCourseInputForm, setShowCourseInputForm] = useState(false);
+  const [showCourseInputForm, setShowCourseInputForm] = useState(false); // Control course input form visibility
 
   useEffect(() => {
     const savedCourses = JSON.parse(localStorage.getItem(`${username}_courses`)) || [];
@@ -40,7 +40,7 @@ const Dashboard = () => {
   const handleCourseSubmit = (newCourses) => {
     setCourses(newCourses);
     localStorage.setItem(`${username}_courses`, JSON.stringify(newCourses));
-    setShowCourseInputForm(false);
+    setShowCourseInputForm(false); // Hide the form after adding courses
   };
 
   const handleShowAddTaskForm = () => {
@@ -61,7 +61,8 @@ const Dashboard = () => {
       <h2>{`${username}'s Dashboard`}</h2>
       <button onClick={handleReset} className="reset-button">Reset Courses and Tasks</button>
 
-      {courses.length === 0 && (
+      {/* Show the Add Course button if no courses exist */}
+      {courses.length === 0 && !showCourseInputForm && (
         <>
           <p>No courses available. Please add courses to get started.</p>
           <button onClick={() => setShowCourseInputForm(true)} className="add-course-button">
@@ -70,10 +71,12 @@ const Dashboard = () => {
         </>
       )}
 
+      {/* Show the Course Input Form if the Add Course button is clicked */}
       {showCourseInputForm && (
         <CourseInputForm onSubmit={handleCourseSubmit} />
       )}
 
+      {/* If courses exist, show tasks and the option to add more tasks */}
       {courses.length > 0 && (
         <>
           <button onClick={handleShowAddTaskForm} className="add-task-button">Add Task</button>
