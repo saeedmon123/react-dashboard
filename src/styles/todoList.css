@@ -1,0 +1,79 @@
+.todo-list {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .todo-list h4 {
+    color: #4B0082; /* Primary purple color */
+    margin-bottom: 10px;
+  }
+  
+  .todo-list li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .todo-list li button {
+    background-color: #d9534f;
+    border: none;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .todo-list li button:hover {
+    background-color: #c9302c;
+  }
+  
+  .todo-list li button:active {
+    background-color: #ac2925;
+  }
+  .todo-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .todo-item button {
+    background-color: #d9534f;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .todo-item button:hover {
+    background-color: #c9302c;
+  }
+  
+  .todo-item button:active {
+    background-color: #ac2925;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .todo-list li {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .todo-list li button {
+      margin-top: 10px;
+    }
+  }
+  

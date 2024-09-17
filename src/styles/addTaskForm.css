@@ -1,0 +1,55 @@
+.add-task-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .add-task-form h2 {
+    color: #4B0082; /* Primary purple color */
+    margin-bottom: 20px;
+  }
+  
+  .add-task-form label {
+    display: block;
+    font-size: 16px;
+    color: #4B0082;
+    margin-bottom: 5px;
+  }
+  
+  .add-task-form input,
+  .add-task-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .add-task-form button {
+    padding: 10px;
+    background-color: #4B0082;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-task-form button:hover {
+    background-color: #714cce;
+  }
+  
+  .add-task-form button:active {
+    background-color: #3c085e;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .add-task-form {
+      padding: 15px;
+    }
+  }
+  

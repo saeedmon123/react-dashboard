@@ -1,0 +1,94 @@
+/* AdminDashboard.css */
+
+/* Admin dashboard main container */
+.admin-dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background-color: #651266; /* Same background color as the login page */
+    min-height: 100vh;
+  }
+  
+  .admin-box {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  /* Headings styling */
+  h2, h3 {
+    color: #4B0082; /* Primary color */
+    text-align: center;
+  }
+  
+  /* Input fields styling */
+  .admin-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+  }
+  
+  .admin-box input:focus {
+    border-color: #4B0082; /* Purple border on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(75, 0, 130, 0.3);
+  }
+  
+  /* Add User button styling */
+  .admin-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4B0082;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .admin-box button:hover {
+    background-color: #714cce;
+  }
+  
+  .admin-box button:active {
+    background-color: #3c085e;
+  }
+  
+  /* User list styling */
+  .user-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .user-list li {
+    background-color: #f4f4f9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .admin-box {
+      max-width: 90%;
+      padding: 30px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .admin-box {
+      max-width: 100%;
+      padding: 20px;
+    }
+  }
+  
