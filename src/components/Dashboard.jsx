@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../styles/dashboard.css'; // Import the dashboard styles
 import AddTaskForm from './AddTaskForm'; // Import AddTaskForm
 import TodoList from './TodoList'; // Import TodoList
+import CourseInputForm from './CourseInputForm'; // Import CourseInputForm
 import usePersistentState from '../hooks/usePersistentState';
 
 const Dashboard = () => {
@@ -9,6 +10,7 @@ const Dashboard = () => {
   const [courses, setCourses] = usePersistentState(`${username}_courses`, []);
   const [tasks, setTasks] = usePersistentState(`${username}_tasks`, {});
   const [showAddTaskForm, setShowAddTaskForm] = useState(false);
+  const [showCourseInputForm, setShowCourseInputForm] = useState(false);
 
   useEffect(() => {
     const savedCourses = JSON.parse(localStorage.getItem(`${username}_courses`)) || [];
@@ -35,13 +37,14 @@ const Dashboard = () => {
     });
   };
 
-  const handleShowAddTaskForm = () => {
-    setShowAddTaskForm(true);
+  const handleCourseSubmit = (newCourses) => {
+    setCourses(newCourses);
+    localStorage.setItem(`${username}_courses`, JSON.stringify(newCourses));
+    setShowCourseInputForm(false);
   };
 
-  const handleAddTask = (course, category, task) => {
-    addTask(course, category, task);
-    setShowAddTaskForm(false);
+  const handleShowAddTaskForm = () => {
+    setShowAddTaskForm(true);
   };
 
   const handleReset = () => {
@@ -57,27 +60,43 @@ const Dashboard = () => {
     <div className="dashboard">
       <h2>{`${username}'s Dashboard`}</h2>
       <button onClick={handleReset} className="reset-button">Reset Courses and Tasks</button>
-      <button onClick={handleShowAddTaskForm} className="add-task-button">Add Task</button>
 
-      {showAddTaskForm && (
-        <AddTaskForm
-          courses={courses}
-          onAddTask={handleAddTask}
-          onClose={() => setShowAddTaskForm(false)}
-        />
+      {courses.length === 0 && (
+        <>
+          <p>No courses available. Please add courses to get started.</p>
+          <button onClick={() => setShowCourseInputForm(true)} className="add-course-button">
+            Add Courses
+          </button>
+        </>
       )}
 
-      {courses.length > 0 ? (
-        <div className="course-list">
-          {courses.map(course => (
-            <div className="course-card" key={course}>
-              <h3>{course}</h3>
-              <TodoList course={course} tasks={tasks[course] || {}} />
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p>No courses available. Please add some courses.</p>
+      {showCourseInputForm && (
+        <CourseInputForm onSubmit={handleCourseSubmit} />
+      )}
+
+      {courses.length > 0 && (
+        <>
+          <button onClick={handleShowAddTaskForm} className="add-task-button">Add Task</button>
+          {showAddTaskForm && (
+            <AddTaskForm
+              courses={courses}
+              onAddTask={(course, category, task) => {
+                addTask(course, category, task);
+                setShowAddTaskForm(false);
+              }}
+              onClose={() => setShowAddTaskForm(false)}
+            />
+          )}
+
+          <div className="course-list">
+            {courses.map(course => (
+              <div className="course-card" key={course}>
+                <h3>{course}</h3>
+                <TodoList course={course} tasks={tasks[course] || {}} />
+              </div>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );

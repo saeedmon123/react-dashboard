@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import '../styles/courseInputForm.css'; // Importing the styles
 
 const CourseInputForm = ({ onSubmit }) => {
   const [numCourses, setNumCourses] = useState(0);
@@ -9,7 +9,6 @@ const CourseInputForm = ({ onSubmit }) => {
     setCourseNames(prev => Array(numCourses).fill('').map((name, i) => prev[i] || ''));
   }, [numCourses]);
 
-  // Handle number of courses change
   const handleNumCoursesChange = (e) => {
     const value = parseInt(e.target.value, 10);
     if (value >= 0) {
@@ -17,7 +16,6 @@ const CourseInputForm = ({ onSubmit }) => {
     }
   };
 
-  // Handle course name change
   const handleCourseNameChange = (index, value) => {
     setCourseNames(prev => {
       const updatedCourseNames = [...prev];
@@ -26,7 +24,6 @@ const CourseInputForm = ({ onSubmit }) => {
     });
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     if (courseNames.length === numCourses && courseNames.every(name => name.trim() !== '')) {
@@ -37,7 +34,8 @@ const CourseInputForm = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="course-input-form">
+      <h2>Add Courses</h2>
       <label>
         Number of Courses:
         <input
