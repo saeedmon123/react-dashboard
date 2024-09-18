@@ -1,26 +1,32 @@
 import React from 'react';
+import '../styles/todoList.css'; // Assuming this is where styles are
 
 const TodoList = ({ course, tasks }) => {
-  const categories = ['assignments', 'examDates', 'studyGoals'];
+  const categories = [
+    { name: 'assignments', displayName: 'Assignments' },
+    { name: 'examDates', displayName: 'Exam Dates' },
+    { name: 'studyGoals', displayName: 'Study Goals' },
+  ];
 
-  if (!tasks || Object.keys(tasks).length === 0) {
-    return <p>No tasks available for {course}. Add tasks to see them here.</p>;
+  // Filter out empty categories
+  const nonEmptyCategories = categories.filter(category => tasks[category.name] && tasks[category.name].length > 0);
+
+  if (nonEmptyCategories.length === 0) {
+    // Don't render anything if there are no tasks
+    return null;
   }
 
   return (
-    <div>
-      {categories.map(category => (
-        <div key={category}>
-          <h4>{category.charAt(0).toUpperCase() + category.slice(1)}</h4>
-          {tasks[category] && tasks[category].length > 0 ? (
-            <ul>
-              {tasks[category].map((task, index) => (
-                <li key={index}>{task}</li>
-              ))}
-            </ul>
-          ) : (
-            <p>No tasks for this category.</p>
-          )}
+    <div className="task-row">
+      {nonEmptyCategories.map(category => (
+        <div key={category.name} className="task-item">
+          <div className="course-name">{course}</div>
+          <div className="category-name">{category.displayName}</div>
+          <div className="tasks-list">
+            {tasks[category.name].map((task, index) => (
+              <span key={index} className="task">{task}</span>
+            ))}
+          </div>
         </div>
       ))}
     </div>

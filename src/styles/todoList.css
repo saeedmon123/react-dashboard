@@ -1,79 +1,62 @@
-.todo-list {
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+.task-row {
+  display: flex;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.course-name {
+  flex: 1;
+  font-weight: bold;
+  color: #4B0082; /* Primary purple color */
+  background-color: #4B0082;
+  color: white;
+  padding: 10px;
+  border-radius: 5px 0 0 5px;
+}
+
+.category-name {
+  flex: 1;
+  background-color: #ff69b4; /* Pink category background */
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.tasks-list {
+  flex: 2;
+  background-color: #ddd;
+  padding: 10px;
+  border-radius: 0 5px 5px 0;
+}
+
+.task {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .task-row {
+    flex-direction: column;
   }
-  
-  .todo-list h4 {
-    color: #4B0082; /* Primary purple color */
+
+  .course-name,
+  .category-name,
+  .tasks-list {
+    border-radius: 5px;
     margin-bottom: 10px;
+    text-align: center;
   }
-  
-  .todo-list li {
-    padding: 10px;
-    background-color: #f9f9f9;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
+
+  .task-item {
+    flex-direction: column;
   }
-  
-  .todo-list li button {
-    background-color: #d9534f;
-    border: none;
-    padding: 5px 10px;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .todo-list li button:hover {
-    background-color: #c9302c;
-  }
-  
-  .todo-list li button:active {
-    background-color: #ac2925;
-  }
-  .todo-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: #f9f9f9;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .todo-item button {
-    background-color: #d9534f;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .todo-item button:hover {
-    background-color: #c9302c;
-  }
-  
-  .todo-item button:active {
-    background-color: #ac2925;
-  }
-  
-  /* Responsive design */
-  @media (max-width: 768px) {
-    .todo-list li {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .todo-list li button {
-      margin-top: 10px;
-    }
-  }
-  
+}
