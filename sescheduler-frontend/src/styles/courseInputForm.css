@@ -1,0 +1,76 @@
+.course-input-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background-color: #f4f4f9;
+  min-height: 100vh;
+}
+
+.course-input-form h2 {
+  color: #4B0082;
+}
+
+.course-input-form label {
+  font-size: 16px;
+  color: #4B0082;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.course-input-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+}
+
+.course-input-form input:focus {
+  border-color: #4B0082;
+  outline: none;
+  box-shadow: 0 0 5px rgba(75, 0, 130, 0.3);
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4B0082;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #714cce;
+}
+
+button:active {
+  background-color: #3c085e;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .course-input-form {
+      padding: 30px;
+  }
+
+  button {
+      font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .course-input-form {
+      padding: 20px;
+  }
+
+  button {
+      font-size: 12px;
+  }
+}
