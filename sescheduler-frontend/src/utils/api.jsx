@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api/scheduler/';
+const API_URL ='https://react-dashboard-2-avsq.onrender.com/api/scheduler/';
 export const loginUser = async (username, password) => {
   try {
     // Send the username and password as query parameters
