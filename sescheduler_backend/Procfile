@@ -1,0 +1,1 @@
+web: gunicorn sescheduler_backend.wsgi --log-file -
